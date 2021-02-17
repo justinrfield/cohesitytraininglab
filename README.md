@@ -4,9 +4,11 @@
 For the download commands below to work, you need to open up Internet Explorer (not Edge) one time and complete the setup steps.  Close the browser once complete.
 
 # Powershell setup
-Need to run PowerShell as an Administrator
-Run command -> Set-ExecutionPolicy Unrestricted
-Type -> A for All
+```powershell
+# Need to run PowerShell as an Administrator and run the following command.
+Set-ExecutionPolicy Unrestricted
+A
+```
 
 # Download PowerShell Scripts
 ```powershell
