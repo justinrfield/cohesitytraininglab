@@ -25,23 +25,27 @@ $repoURL = 'https://raw.githubusercontent.com/justinrfield/cohesitytraininglab/m
 
 # Creates a policy
 ```powershell
-$policyname - 'enterpolicynamehere'
-.\createProtectionPolicy.ps1 -vip cohesity.example.com -username admin -policyName "$policyname" -daysToKeep 3
+$policyname = 'enter_policy_name_here'
+$daystokeep = '3'
+.\createProtectionPolicy.ps1 -vip cohesity.example.com -username admin -policyName "$policyname" -daysToKeep "$daystokeep"
 ```
 
 # Creates a protection job
 ```powershell
-$protectionjob = 'enterprotectionjobhere'
+# add vm name(s) to the vmlist.txt text file in the Cohesity Folder on the desktop
+$protectionjob = 'enter_protection_job_name_here'
 $jobstarttime = '14:30'
 .\createVMProtectionJob.ps1 -vip cohesity.example.com -username admin -jobName "$protectionjob" -policyName "$policyname" -vCenterName vcenter.example.com -startTime "$jobstarttime" -vmlist ./vmlist.txt
 ```
 
 # Add VM to a protection job
 ```powershell
+# add vm name(s) to the vmadds.txt text file in the Cohesity Folder on the desktop
 ./addVMtoProtectionJob.ps1 -vip cohesity.example.com -username admin -jobName JustinBackup -vmNames (Get-Content ./vmadds.txt)
 ```
 
 # Add another VM to a proteciton job
 ```powershell
+# add additional vm name(s) to the vmadds2.txt text file in the Cohesity Folder on the desktop
 ./addVMtoProtectionJob.ps1 -vip cohesity.example.com -username admin -jobName JustinBackup -vmNames (Get-Content ./vmadds2.txt)
 ```
