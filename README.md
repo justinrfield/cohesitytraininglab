@@ -24,6 +24,7 @@ $repoURL = 'https://raw.githubusercontent.com/justinrfield/cohesitytraininglab/m
 (Invoke-WebRequest -Uri "$repoUrl/vmlist.txt").content | Out-File vmlist.txt; (Get-Content vmlist.txt) | Set-Content vmlist.txt
 (Invoke-WebRequest -Uri "$repoUrl/vmadds.txt").content | Out-File vmadds.txt; (Get-Content vmadds.txt) | Set-Content vmadds.txt
 (Invoke-WebRequest -Uri "$repoUrl/vmadds2.txt").content | Out-File vmadds2.txt; (Get-Content vmadds2.txt) | Set-Content vmadds2.txt
+(Invoke-WebRequest -Uri "$repoUrl/vmremove.txt").content | Out-File vmremove.txt; (Get-Content vmremove.txt) | Set-Content vmaremove.txt
 ```
 
 # Creates a policy
@@ -51,4 +52,10 @@ $jobstarttime = '14:30'
 ```powershell
 # add additional vm name(s) to the vmadds2.txt text file in the Cohesity Folder on the desktop
 ./addVMtoProtectionJob.ps1 -vip cohesity.example.com -username admin -jobName "$protectionjob" -vmNames (Get-Content ./vmadds2.txt)
+```
+
+# Remove a VM from a proteciton job
+```powershell
+# add vm name(s) you want to remove to the vmremove.txt text file in the Cohesity Folder on the desktop
+./unprotectVM.ps1 -vip cohesity.example.com -username admin -domain local -vmName (Get-Content ./vmremove.txt)
 ```
