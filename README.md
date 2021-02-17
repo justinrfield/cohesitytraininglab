@@ -44,11 +44,11 @@ $jobstarttime = '14:30'
 # Add VM to a protection job
 ```powershell
 # add vm name(s) to the vmadds.txt text file in the Cohesity Folder on the desktop
-./addVMtoProtectionJob.ps1 -vip cohesity.example.com -username admin -jobName JustinBackup -vmNames (Get-Content ./vmadds.txt)
+./addVMtoProtectionJob.ps1 -vip cohesity.example.com -username admin -jobName "$protectionjob" -vmNames (Get-Content ./vmadds.txt)
 ```
 
 # Add another VM to a proteciton job
 ```powershell
 # add additional vm name(s) to the vmadds2.txt text file in the Cohesity Folder on the desktop
-./addVMtoProtectionJob.ps1 -vip cohesity.example.com -username admin -jobName JustinBackup -vmNames (Get-Content ./vmadds2.txt)
+./addVMtoProtectionJob.ps1 -vip cohesity.example.com -username admin -jobName "$protectionjob" -vmNames (Get-Content ./vmadds2.txt)
 ```
