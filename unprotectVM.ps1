@@ -10,8 +10,7 @@ param (
 )
 
 ### source the cohesity-api helper code
-#. ./cohesity-api
-. $(Join-Path -Path $PSScriptRoot -ChildPath cohesity-api.ps1)
+. ./cohesity-api
 
 ### authenticate
 apiauth -vip $vip -username $username -domain $domain
@@ -26,7 +25,7 @@ if($vmid){
     if($jobs){
         foreach($job in $jobs){
             "Removing $vmName from $($job.name)"
-            $job.sourceIds = $job.sourceIds | Where-Object { $_ -ne $vmid }
+            $job.sourceIds = @($job.sourceIds | Where-Object { $_ -ne $vmid })
             $null = api put "protectionJobs/$($job.id)" $job
         }
     }else{
