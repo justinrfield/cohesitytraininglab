@@ -28,7 +28,7 @@ $repoURL = 'https://raw.githubusercontent.com/justinrfield/cohesitytraininglab/m
 
 # Creates a policy
 ```powershell
-$policyname = 'enter_policy_name_here'
+$policyname = '35 day retention'
 $daystokeep = '3'
 .\createProtectionPolicy.ps1 -vip cohesity.example.com -username admin -policyName "$policyname" -daysToKeep "$daystokeep"
 ```
@@ -36,7 +36,7 @@ $daystokeep = '3'
 # Creates a protection job
 ```powershell
 # add vm name(s) to the vmlist.txt text file in the Cohesity Folder on the desktop
-$protectionjob = 'enter_protection_job_name_here'
+$protectionjob = 'all vms'
 $jobstarttime = '14:30'
 .\createVMProtectionJob.ps1 -vip cohesity.example.com -username admin -jobName "$protectionjob" -policyName "$policyname" -vCenterName vcenter.example.com -startTime "$jobstarttime" -vmlist ./vmlist.txt
 ```
