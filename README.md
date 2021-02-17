@@ -1,11 +1,17 @@
 # cohesitytraininglab
 
+# internet explorer setup
+For the download commands below to work, you need to open up Internet Explorer (not Edge) one time and complete the setup steps.  Close the browser once complete.
+
 # powershell setup
 Need to run PowerShell as an Administrator
 Run command -> Set-ExecutionPolicy Unrestricted
 Type -> A for All
 
 # Download Commands - paste the below into powershell and execute
+cd c:\users\admin\desktop
+md cohesity
+cd cohesity
 $repoURL = 'https://raw.githubusercontent.com/justinrfield/cohesitytraininglab/main'
 (Invoke-WebRequest -Uri "$repoUrl/createVMProtectionJob.ps1").content | Out-File "createVMProtectionJob.ps1"; (Get-Content "createVMProtectionJob.ps1") | Set-Content "createVMProtectionJob.ps1"
 (Invoke-WebRequest -Uri "$repoUrl/createProtectionPolicy.ps1").content | Out-File "createProtectionPolicy.ps1"; (Get-Content "createProtectionPolicy.ps1") | Set-Content "createProtectionPolicy.ps1"
