@@ -5,11 +5,15 @@ Need to run PowerShell as an Administrator
 Run command -> Set-ExecutionPolicy Unrestricted
 Type -> A for All
 
-# Download Commands
+# Download Commands - paste the below into powershell and execute
 $repoURL = 'https://raw.githubusercontent.com/justinrfield/cohesitytraininglab/main'
+
 (Invoke-WebRequest -Uri "$repoUrl/$scriptName/createVMProtectionJob.ps1").content | Out-File "createVMProtectionJob.ps1"; (Get-Content "createVMProtectionJob.ps1") | Set-Content "createVMProtectionJob.ps1"
+
 (Invoke-WebRequest -Uri "$repoUrl/$scriptName/createProtectionPolicy.ps1").content | Out-File "createProtectionPolicy.ps1"; (Get-Content "createProtectionPolicy.ps1") | Set-Content "createProtectionPolicy.ps1"
+
 (Invoke-WebRequest -Uri "$repoUrl/$scriptName/addVMProtectionJob.ps1").content | Out-File "addVMProtectionJob.ps1"; (Get-Content "addVMProtectionJob.ps1") | Set-Content "addVMProtectionJob.ps1"
+
 (Invoke-WebRequest -Uri "$repoUrl/cohesity-api/cohesity-api.ps1").content | Out-File cohesity-api.ps1; (Get-Content cohesity-api.ps1) | Set-Content cohesity-api.ps1
 
 # Creates a policy
