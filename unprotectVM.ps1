@@ -10,7 +10,8 @@ param (
 )
 
 ### source the cohesity-api helper code
-. ./cohesity-api
+#. ./cohesity-api
+. $(Join-Path -Path $PSScriptRoot -ChildPath cohesity-api.ps1)
 
 ### authenticate
 apiauth -vip $vip -username $username -domain $domain
