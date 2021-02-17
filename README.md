@@ -8,8 +8,9 @@ Need to run PowerShell as an Administrator
 Run command -> Set-ExecutionPolicy Unrestricted
 Type -> A for All
 
-# Download Commands - paste the below into powershell and execute
+# Download Commands
 ```powershell
+# paste the below into powershell and execute
 cd c:\users\admin\desktop
 md cohesity
 cd cohesity
