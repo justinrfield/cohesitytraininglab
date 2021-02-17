@@ -7,7 +7,7 @@ For the download commands below to work, you need to open up Internet Explorer (
 ```powershell
 # Need to run PowerShell as an Administrator and run the following command.
 Set-ExecutionPolicy Unrestricted
-A
+# A for all and hit enter
 ```
 
 # Download PowerShell Scripts
