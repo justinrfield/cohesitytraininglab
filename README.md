@@ -1,9 +1,9 @@
-# cohesitytraininglab
+# **** COHESITY TRAINING LAB ****
 
-# internet explorer setup
+# Internet Explorer setup
 For the download commands below to work, you need to open up Internet Explorer (not Edge) one time and complete the setup steps.  Close the browser once complete.
 
-# powershell setup
+# Powershell setup
 Need to run PowerShell as an Administrator
 Run command -> Set-ExecutionPolicy Unrestricted
 Type -> A for All
