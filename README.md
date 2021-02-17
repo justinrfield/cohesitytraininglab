@@ -1,17 +1,16 @@
 # cohesitytraininglab
 
-# Need to run PowerShell as an Administrator
-# Run command -> Set-ExecutionPolicy Unrestricted
-# Type -> A for All
+# powershell setup
+Need to run PowerShell as an Administrator
+Run command -> Set-ExecutionPolicy Unrestricted
+Type -> A for All
 
 # Download Commands
-$scriptName = 'createVMProtectionJob'
-$repoURL = 'https://raw.githubusercontent.com/bseltz-cohesity/scripts/master/powershell'
-(Invoke-WebRequest -Uri "$repoUrl/$scriptName/$scriptName.ps1").content | Out-File "$scriptName.ps1"; (Get-Content "$scriptName.ps1") | Set-Content "$scriptName.ps1"
+$repoURL = 'https://raw.githubusercontent.com/justinrfield/cohesitytraininglab/main'
+(Invoke-WebRequest -Uri "$repoUrl/$scriptName/createVMProtectionJob.ps1").content | Out-File "createVMProtectionJob.ps1"; (Get-Content "createVMProtectionJob.ps1") | Set-Content "createVMProtectionJob.ps1"
+(Invoke-WebRequest -Uri "$repoUrl/$scriptName/createProtectionPolicy.ps1").content | Out-File "createProtectionPolicy.ps1"; (Get-Content "createProtectionPolicy.ps1") | Set-Content "createProtectionPolicy.ps1"
+(Invoke-WebRequest -Uri "$repoUrl/$scriptName/addVMProtectionJob.ps1").content | Out-File "addVMProtectionJob.ps1"; (Get-Content "addVMProtectionJob.ps1") | Set-Content "addVMProtectionJob.ps1"
 (Invoke-WebRequest -Uri "$repoUrl/cohesity-api/cohesity-api.ps1").content | Out-File cohesity-api.ps1; (Get-Content cohesity-api.ps1) | Set-Content cohesity-api.ps1
-# End Download Commands
-
-
 
 # Creates a policy
 $policyname - 'enterpolicynamehere'
