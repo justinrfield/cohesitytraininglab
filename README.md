@@ -68,16 +68,17 @@ $jobstarttime = '14:30'
 # Register a list of Physical servers to a cluster
 ```powershell
 # add the physical server name(s) you want to add to a specific cluster to the reg-physical-servers.txt text file in the Cohesity Folder on the desktop
+$clustervip = 'enter cluster vip you want to connect to between single quotes'
 $clusterusername = 'enter username between single quotes'
-$existingjobname = 'enter existing job name here between single quotes'
 $domainname = 'enter domain name for servers here between single quotes'
-./registerPhysical.ps1 -vip mycluster -username "$clusterusername" -domain "$domainname" -serverList ./reg-physical-servers.txt
+./registerPhysical.ps1 -vip $clustervip -username "$clusterusername" -domain "$domainname" -serverList ./reg-physical-servers.txt
 ```
 
 # Add a list of Physical servers to an existing protection job on a specified cluster
 ```powershell
 # add the physical server name(s) you want to add to an existing protection job to the add-physicals-to-job.txt text file in the Cohesity Folder on the desktop
+$clustervip = 'enter cluster vip you want to connect to between single quotes'
 $clusterusername = 'enter username between single quotes'
 $existingjobname = 'enter existing job name here between single quotes'
-./addPhysicalToProtectionJob.ps1 -vip mycluster -username "$clusterusername" -jobName "$existingjobname" -serverList (Get-Content ./add-physicals-to-job.txt)
+./addPhysicalToProtectionJob.ps1 -vip $clustervip -username "$clusterusername" -jobName "$existingjobname" -serverList (Get-Content ./add-physicals-to-job.txt)
 ```
