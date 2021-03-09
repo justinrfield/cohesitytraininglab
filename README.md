@@ -98,6 +98,6 @@ $domainname = 'enter domain name for servers here between single quotes'
 # configure the variables below and then copy/paste the lines below into your powershell window and execute
 $clustervip = 'enter the cluster vip you want to connect to here between single quotes'
 $clusterusername = 'enter username here between single quotes'
-$existingjobname = 'enter existing job name here between single quotes'
+$existingjobname = 'enter existing job name you want to add the servers to here between single quotes'
 ./addPhysicalToProtectionJob.ps1 -vip "$clustervip" -username "$clusterusername" -jobName "$existingjobname" -serverList ./add-physicals-to-job.txt
 ```
