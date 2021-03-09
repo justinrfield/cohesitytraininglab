@@ -25,7 +25,9 @@ $repoURL = 'https://raw.githubusercontent.com/justinrfield/cohesitytraininglab/m
 (Invoke-WebRequest -Uri "$repoUrl/vmlist.txt").content | Out-File vmlist.txt; (Get-Content vmlist.txt) | Set-Content vmlist.txt
 (Invoke-WebRequest -Uri "$repoUrl/vmadds.txt").content | Out-File vmadds.txt; (Get-Content vmadds.txt) | Set-Content vmadds.txt
 (Invoke-WebRequest -Uri "$repoUrl/vmadds2.txt").content | Out-File vmadds2.txt; (Get-Content vmadds2.txt) | Set-Content vmadds2.txt
-(Invoke-WebRequest -Uri "$repoUrl/vmremove.txt").content | Out-File vmremove.txt; (Get-Content vmremove.txt) | Set-Content vmaremove.txt
+(Invoke-WebRequest -Uri "$repoUrl/vmremove.txt").content | Out-File vmremove.txt; (Get-Content vmremove.txt) | Set-Content vmremove.txt
+(Invoke-WebRequest -Uri "$repoUrl/registerPhysical.ps1").content | Out-File registerPhysical.ps1; (Get-Content registerPhysical.ps1) | Set-Content registerPhysical.ps1
+(Invoke-WebRequest -Uri "$repoUrl/reg-physical-servers.txt").content | Out-File reg-physical-servers.txt; (Get-Content reg-physical-servers.txt) | Set-Content reg-physical-servers.txt
 ```
 
 # Creates a policy
@@ -59,4 +61,10 @@ $jobstarttime = '14:30'
 ```powershell
 # add vm name(s) you want to remove to the vmremove.txt text file in the Cohesity Folder on the desktop
 ./unprotectVM.ps1 -vip cohesity.example.com -username admin -domain local -vmName (Get-Content ./vmremove.txt)
+```
+
+# Register a list of Physical servers to a cluster
+```powershell
+# add the physical server name(s) you want to add to a specific cluster to the reg-physical-servers.txt text file in the Cohesity Folder on the desktop
+./registerPhysical.ps1 -vip mycluster -username myusername -domain mydomain.net -serverList (Get-Content ./reg-physical-servers.txt)
 ```
