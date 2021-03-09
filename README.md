@@ -71,7 +71,7 @@ $jobstarttime = '14:30'
 $clustervip = 'enter cluster vip you want to connect to between single quotes'
 $clusterusername = 'enter username between single quotes'
 $domainname = 'enter domain name for servers here between single quotes'
-./registerPhysical.ps1 -vip $clustervip -username "$clusterusername" -domain "$domainname" -serverList ./reg-physical-servers.txt
+./registerPhysical.ps1 -vip "$clustervip" -username "$clusterusername" -domain "$domainname" -serverList ./reg-physical-servers.txt
 ```
 
 # Add a list of Physical servers to an existing protection job on a specified cluster
@@ -80,5 +80,5 @@ $domainname = 'enter domain name for servers here between single quotes'
 $clustervip = 'enter cluster vip you want to connect to between single quotes'
 $clusterusername = 'enter username between single quotes'
 $existingjobname = 'enter existing job name here between single quotes'
-./addPhysicalToProtectionJob.ps1 -vip $clustervip -username "$clusterusername" -jobName "$existingjobname" -serverList (Get-Content ./add-physicals-to-job.txt)
+./addPhysicalToProtectionJob.ps1 -vip "$clustervip" -username "$clusterusername" -jobName "$existingjobname" -serverList ./add-physicals-to-job.txt
 ```
