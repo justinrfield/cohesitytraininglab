@@ -36,40 +36,52 @@ $repoURL = 'https://raw.githubusercontent.com/justinrfield/cohesitytraininglab/m
 ```powershell
 $policyname = '35 day retention'
 $daystokeep = '3'
-.\createProtectionPolicy.ps1 -vip cohesity.example.com -username admin -policyName "$policyname" -daysToKeep "$daystokeep"
+$clustervip = 'enter cluster vip you want to connect to here between single quotes'
+$clusterusername = 'enter username here between single quotes'
+.\createProtectionPolicy.ps1 -vip "$clustervip" -username "$clusterusername" -policyName "$policyname" -daysToKeep "$daystokeep"
 ```
 
-# Creates a protection job
+# Creates a protection job for VMs
 ```powershell
 # add vm name(s) to the vmlist.txt text file in the Cohesity Folder on the desktop
 $protectionjob = 'all vms'
 $jobstarttime = '14:30'
-.\createVMProtectionJob.ps1 -vip cohesity.example.com -username admin -jobName "$protectionjob" -policyName "$policyname" -vCenterName vcenter.example.com -startTime "$jobstarttime" -vmlist ./vmlist.txt
+$clustervip = 'enter cluster vip you want to connect to here between single quotes'
+$clusterusername = 'enter username here between single quotes'
+$vcentername = 'enter vCenter name here between single quotes'
+.\createVMProtectionJob.ps1 -vip "$clustervip" -username "$clusterusername" -jobName "$protectionjob" -policyName "$policyname" -vCenterName "$vcentername" -startTime "$jobstarttime" -vmlist ./vmlist.txt
 ```
 
 # Add VM to a protection job
 ```powershell
 # add vm name(s) to the vmadds.txt text file in the Cohesity Folder on the desktop
-./addVMtoProtectionJob.ps1 -vip cohesity.example.com -username admin -jobName "$protectionjob" -vmNames (Get-Content ./vmadds.txt)
+$clustervip = 'enter cluster vip you want to connect to here between single quotes'
+$clusterusername = 'enter username here between single quotes'
+./addVMtoProtectionJob.ps1 -vip "$clustervip" -username "$clusterusername" -jobName "$protectionjob" -vmNames (Get-Content ./vmadds.txt)
 ```
 
 # Add another VM to a proteciton job
 ```powershell
 # add additional vm name(s) to the vmadds2.txt text file in the Cohesity Folder on the desktop
-./addVMtoProtectionJob.ps1 -vip cohesity.example.com -username admin -jobName "$protectionjob" -vmNames (Get-Content ./vmadds2.txt)
+$clustervip = 'enter cluster vip you want to connect to here between single quotes'
+$clusterusername = 'enter username here between single quotes'
+./addVMtoProtectionJob.ps1 -vip "$clustervip" -username "$clusterusername" -jobName "$protectionjob" -vmNames (Get-Content ./vmadds2.txt)
 ```
 
 # Remove a VM from a proteciton job
 ```powershell
 # add vm name(s) you want to remove to the vmremove.txt text file in the Cohesity Folder on the desktop
-./unprotectVM.ps1 -vip cohesity.example.com -username admin -domain local -vmName (Get-Content ./vmremove.txt)
+$clustervip = 'enter cluster vip you want to connect to here between single quotes'
+$clusterusername = 'enter username here between single quotes'
+$domainname = 'enter domain name for servers here between single quotes'
+./unprotectVM.ps1 -vip "$clustervip" -username "$clusterusername" -domain "$domainname" -vmName (Get-Content ./vmremove.txt)
 ```
 
 # Register a list of Physical servers to a cluster
 ```powershell
 # add the physical server name(s) you want to add to a specific cluster to the reg-physical-servers.txt text file in the Cohesity Folder on the desktop
-$clustervip = 'enter cluster vip you want to connect to between single quotes'
-$clusterusername = 'enter username between single quotes'
+$clustervip = 'enter cluster vip you want to connect to here between single quotes'
+$clusterusername = 'enter username here between single quotes'
 $domainname = 'enter domain name for servers here between single quotes'
 ./registerPhysical.ps1 -vip "$clustervip" -username "$clusterusername" -domain "$domainname" -serverList ./reg-physical-servers.txt
 ```
@@ -77,8 +89,8 @@ $domainname = 'enter domain name for servers here between single quotes'
 # Add a list of Physical servers to an existing protection job on a specified cluster
 ```powershell
 # add the physical server name(s) you want to add to an existing protection job to the add-physicals-to-job.txt text file in the Cohesity Folder on the desktop
-$clustervip = 'enter cluster vip you want to connect to between single quotes'
-$clusterusername = 'enter username between single quotes'
+$clustervip = 'enter cluster vip you want to connect to here between single quotes'
+$clusterusername = 'enter username here between single quotes'
 $existingjobname = 'enter existing job name here between single quotes'
 ./addPhysicalToProtectionJob.ps1 -vip "$clustervip" -username "$clusterusername" -jobName "$existingjobname" -serverList ./add-physicals-to-job.txt
 ```
