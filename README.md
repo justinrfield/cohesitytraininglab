@@ -28,6 +28,8 @@ $repoURL = 'https://raw.githubusercontent.com/justinrfield/cohesitytraininglab/m
 (Invoke-WebRequest -Uri "$repoUrl/vmremove.txt").content | Out-File vmremove.txt; (Get-Content vmremove.txt) | Set-Content vmremove.txt
 (Invoke-WebRequest -Uri "$repoUrl/registerPhysical.ps1").content | Out-File registerPhysical.ps1; (Get-Content registerPhysical.ps1) | Set-Content registerPhysical.ps1
 (Invoke-WebRequest -Uri "$repoUrl/reg-physical-servers.txt").content | Out-File reg-physical-servers.txt; (Get-Content reg-physical-servers.txt) | Set-Content reg-physical-servers.txt
+(Invoke-WebRequest -Uri "$repoUrl/addPhysicalToProtectionJob.ps1").content | Out-File "addPhysicalToProtectionJob.ps1"; (Get-Content "addPhysicalToProtectionJob.ps1") | Set-Content "addPhysicalToProtectionJob.ps1"
+(Invoke-WebRequest -Uri "$repoUrl/radd-physicals-to-job.txt").content | Out-File add-physicals-to-job.txt; (Get-Content add-physicals-to-job.txt) | Set-Content add-physicals-to-job.txt
 ```
 
 # Creates a policy
@@ -67,4 +69,10 @@ $jobstarttime = '14:30'
 ```powershell
 # add the physical server name(s) you want to add to a specific cluster to the reg-physical-servers.txt text file in the Cohesity Folder on the desktop
 ./registerPhysical.ps1 -vip mycluster -username myusername -domain mydomain.net -serverList (Get-Content ./reg-physical-servers.txt)
+```
+
+# Register a list of Physical servers to a cluster
+```powershell
+# add the physical server name(s) you want to add to a specific cluster to the reg-physical-servers.txt text file in the Cohesity Folder on the desktop
+./addPhysicalToProtectionJob.ps1 -vip mycluster -username myusername -jobName 'My Job' -serverList (Get-Content ./add-physicals-to-job.txt)
 ```
